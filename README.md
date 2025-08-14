@@ -25,40 +25,6 @@ It supports secure user authentication with **encrypted passwords** and implemen
 
 ---
 
-## 🗄 Database Structure
-
-### 1. **books**
-| Column Name | Data Type | Description |
-|-------------|-----------|-------------|
-| `book_id`   | INT (PK, AUTO_INCREMENT) | Unique ID for each book |
-| `title`     | VARCHAR(255) | Book title |
-| `author`    | VARCHAR(255) | Author name |
-| `genre`     | VARCHAR(100) | Genre/category |
-| `quantity`  | INT | Available quantity |
-
----
-
-### 2. **users**
-| Column Name | Data Type | Description |
-|-------------|-----------|-------------|
-| `user_id`   | INT (PK, AUTO_INCREMENT) | Unique ID for each user |
-| `username`  | VARCHAR(100) | User's name |
-| `password`  | VARCHAR(255) | Encrypted password |
-| `role`      | ENUM('admin','user') | Role type |
-
----
-
-### 3. **issued_books**
-| Column Name | Data Type | Description |
-|-------------|-----------|-------------|
-| `issue_id`  | INT (PK, AUTO_INCREMENT) | Unique ID for each issue record |
-| `book_id`   | INT (FK) | Book ID from `books` |
-| `user_id`   | INT (FK) | User ID from `users` |
-| `issue_date`| DATE | Date of book issue |
-| `return_date` | DATE | Date of return (NULL if not returned) |
-
----
-
 ## ⚡ SQL Triggers
 
 ### 1. **Decrease Quantity When Issued**
